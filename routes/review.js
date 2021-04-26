@@ -55,9 +55,9 @@ router.route('')
                             month = time.substring(5, 7),
                             day = time.substring(8, 10);
 
-                        if (day.substring(0, 1) == '0') {
-                            day = day.substring(1, 2);
-                        }
+                        // if (day.substring(0, 1) == '0') {
+                        //     day = day.substring(1, 2);
+                        // }
                         str = str + week_day + ", " + map_month.get(month) + ' ' + day + ' ' + year;
                         single_review.created_at = str;
                     } else {

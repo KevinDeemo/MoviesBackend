@@ -10,19 +10,22 @@ router.route("/:query")
             .then(response => {
                 let result = [], count = 0,
                     new_array = response.data.results;
-                for (var i = 0; i < new_array.length && count < 7; i++) {
+                for (var i = 0; i < new_array.length && count < 20; i++) {
                     if(new_array[i].backdrop_path == null) {
                         continue;
                     }
                     let s_res = {};
                     s_res.id = new_array[i].id;
                     s_res.backdrop_path = new_array[i].backdrop_path;
+                    s_res.rating = new_array[i].vote_average;
                     if (new_array[i].media_type == 'tv') {
                         s_res.media_type = 'tv';
                         s_res.name = new_array[i].name;
+                        s_res.time = new_array[i].first_air_date;
                     } else if(new_array[i].media_type == 'movie'){
                         s_res.media_type = 'movie';
                         s_res.name = new_array[i].title;
+                        s_res.time = new_array[i].release_date;
                     }
                     count++;
                     result.push(s_res);
