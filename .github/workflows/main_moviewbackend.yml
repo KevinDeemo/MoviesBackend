@@ -52,5 +52,5 @@ jobs:
       with:
         app-name: 'moviewbackend'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_563492c52493499fb28450bff22b3146 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_2a7872317ee442a6a9d21b804f6812c9 }}
         package: .
