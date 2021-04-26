@@ -12,7 +12,7 @@ router.route('')
         let id = req.query.id;
         // console.log(req);
         let url = null;
-        let hasVideo = true;
+        let hasVideo = false;
         if (type == 'movie') {
             url = "https://api.themoviedb.org/3/movie/" + id + "/videos" + api_key + "&language=en-US&page=1";
         } else {
@@ -31,17 +31,15 @@ router.route('')
                                 type: new_array[i].type,
                                 name: new_array[i].name
                             };
-                            if (new_array[i].key == null || new_array[i].key == "") {
-                                hasVideo = false;
-                                video.key = "";
-                            } else {
+                            if (new_array[i].key != null && new_array[i].key != "") {
+                                hasVideo = true;
                                 video.key = new_array[i].key;
+                            } else {
+                                video.key = "";
                             }
                             break;
                         }
                     }
-                } else {
-                    hasVideo = false;
                 }
                 
                 result.video = video;
