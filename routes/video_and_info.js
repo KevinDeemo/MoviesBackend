@@ -24,22 +24,26 @@ router.route('')
                 let new_array = response.data.results;
                 let video = {};
                 if (new_array.length > 0) {
-                    video = {
-                        // site: val_str(new_array[0].site),
-                        // type: val_str(new_array[0].type),
-                        // name: val_str(new_array[0].name),
-
-                        site: new_array[0].site,
-                        type: new_array[0].type,
-                        name: new_array[0].name
-                    };
-                }
-                if (new_array.length == 0 || new_array[0].key == null || new_array[0].key == "") {
-                    hasVideo = false;
-                    video.key = "";
+                    for(var i = 0; i < new_array.length; i++) {
+                        if(new_array[i].type == "Trailer") {
+                            video = {
+                                site: new_array[i].site,
+                                type: new_array[i].type,
+                                name: new_array[i].name
+                            };
+                            if (new_array[i].key == null || new_array[i].key == "") {
+                                hasVideo = false;
+                                video.key = "";
+                            } else {
+                                video.key = new_array[i].key;
+                            }
+                            break;
+                        }
+                    }
                 } else {
-                    video.key = new_array[0].key;
+                    hasVideo = false;
                 }
+                
                 result.video = video;
                 if (type == 'movie') {
                     url = "https://api.themoviedb.org/3/movie/" + id + api_key + "&language=en-US&page=1";
