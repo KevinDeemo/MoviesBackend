@@ -43,8 +43,9 @@ app.use('/*', function(req, res){
   res.sendFile(path.join(__dirname + '/dist/hw8-final/index.html')); 
 })
 
-app.listen(80, function () {
-  console.log("Express API is running at port 80");
+var port = process.env.port || 2000
+app.listen(port, function () {
+  console.log("Express API is running at port 2000");
 })
 
 module.exports = app;
