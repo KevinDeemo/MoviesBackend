@@ -756,7 +756,8 @@ __webpack_require__.r(__webpack_exports__);
 const options = {
     headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({ "Content-Type": "application/json" })
 };
-const base_url = 'https://kevin-csci571-hw8.wl.r.appspot.com/apis';
+// const base_url = 'https://kevin-csci571-hw8.wl.r.appspot.com/apis';
+const base_url = 'https://moviewbackend.azurewebsites.net/apis';
 // const base_url = 'http://localhost:2000/apis';
 class HttpService {
     constructor(http) {
